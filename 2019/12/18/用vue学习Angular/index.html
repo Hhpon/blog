@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="用Vue的一些概念去学习Angular的语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用vue学习Angular">
+<meta property="og:url" content="http://yoursite.com/2019/12/18/%E7%94%A8vue%E5%AD%A6%E4%B9%A0Angular/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="用Vue的一些概念去学习Angular的语法">
+<meta property="og:image" content="http://yoursite.com/2019/12/18/%E7%94%A8vue%E5%AD%A6%E4%B9%A0Angular/vue.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/12/18/%E7%94%A8vue%E5%AD%A6%E4%B9%A0Angular/angular.png">
+<meta property="article:published_time" content="2019-12-18T01:34:59.000Z">
+<meta property="article:modified_time" content="2022-02-14T11:40:16.158Z">
+<meta property="article:author" content="Hhpon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2019/12/18/%E7%94%A8vue%E5%AD%A6%E4%B9%A0Angular/vue.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/18/用vue学习Angular/"/>
+
+
+
+
+
+  <title>用vue学习Angular | 学习笔记</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/18/%E7%94%A8vue%E5%AD%A6%E4%B9%A0Angular/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hhpon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用vue学习Angular</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-18T09:34:59+08:00">
+                2019-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  用Vue的一些概念去学习Angular的语法
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><hr>
+<p>学习本来是个枯燥无味的事情，所以我为了强制我的脑子不停的思考的方法就是边学边写点什么，这让我想起了我当初“机械制造技术基础“考试之前，我用了同样的方法，我把老师给画的考点全部在本子上潮鞋</p>
+<p>在学习<code>Angular</code>之前，我们应该能在<code>Angular</code>的‘环境’里面书写<code>Angular</code>的语法，但是我们没法像<code>Vue</code>一样使用<code>cdn</code>的方法直接创建一个<code>Vue</code>的‘环境’，但是好在官方文档给了我们一个线上的‘环境’，能让我们直接书写<code>Angular</code>的语言，并且看到编译以后的结果。</p>
+<p><a href="https://stackblitz.com/angular/krnapkaxypn" target="_blank" rel="noopener">点此在 StackBlitz 上创建一个新项目</a></p>
+<h3 id="两种框架的项目目录对比"><a href="#两种框架的项目目录对比" class="headerlink" title="两种框架的项目目录对比"></a>两种框架的项目目录对比</h3><p><strong>由于我也是初学，所以项目目录认识的也不全，Vue 的也只是平时的一个小项目的目录，基本没有代表性，但是这个 Angular 的目录是教程中的一个例子的目录结构，对于初学者还是能有所提示的。</strong></p>
+<div style='display: flex;justify-content: space-around;align-items: center;'>
+  <img src='vue.jpg' title='Vue 目录结构'><img src='angular.png' title=‘Angular 目录结构’>
+</div>
+
+<h4 id="Vue-目录结构"><a href="#Vue-目录结构" class="headerlink" title="Vue 目录结构"></a>Vue 目录结构</h4><p>Vue 的目录是脚手架自动创建的，App.vue 是 Vue 项目的根组件，router 文件夹是 vue-router 的路由配置，components 是用来存放组件的</p>
+<h4 id="Angular-目录结构"><a href="#Angular-目录结构" class="headerlink" title="Angular 目录结构"></a>Angular 目录结构</h4><p>在 Angular 中，前缀名一样的一般是一个组件的不同组成部分。比如 app.component 是 Angular 应用的根组件，就好像 Vue 中的 App.vue 一样。另外在 app 目录下的其他文件就是目录的组件了，不知道当项目很大的时候会如何架构，但是在最基本的官方案例中是如此放置的。<br>此外我们还能看到一个名叫<code>app-routing.module.ts</code>的文件，功能就像他的名字一样，他就是用来配置 Angular 应用的路由的。<br>以上所说的在我的理解中都是视图部分，在 Angular 中视图与数据处理分的比较清楚，在刚刚入门 Vue 的时候没有这种感觉，不知道是因为刚刚学习 Vue 的时候自己是个小白还是因为框架文档讲述的区别。<br>既然刚刚的视图组件都是用来展示数据的，那么问题来了，我们如何获取并处理数据呢？</p>
+<p><code>service</code>是用来获取数据并处理数据的模块</p>
+<h3 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h3><hr>
+<p><strong>由于我们是用 Vue 的概念去学习 Angular，所以我会对比着说两种框架中类似的概念，能让我在学习 Angular 的时候重新夯实 Vue</strong></p>
+<h4 id="回顾-Vue-的模板语法"><a href="#回顾-Vue-的模板语法" class="headerlink" title="回顾 Vue 的模板语法"></a>回顾 Vue 的模板语法</h4><hr>
+<h5 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h5><ul>
+<li><p>文本</p>
+<blockquote>
+<p>数据绑定最常见的形式就是使用“Mustache”语法的文本插值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;Message: &#123;&#123; msg &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;span v-once&gt;这个将不会改变: &#123;&#123; msg &#125;&#125;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>原始 HTML</p>
+<blockquote>
+<p>双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html 指令</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;Using mustaches: &#123;&#123; rawHtml &#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;Using v-html directive: &lt;span v-html&#x3D;&quot;rawHtml&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>特性</p>
+<blockquote>
+<p>Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:id&#x3D;&quot;dynamicId&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用 JavaScript 表达式</p>
+<blockquote>
+<p>迄今为止，在我们的模板中，我们一直都只绑定简单的属性键值。但实际上，对于所有的数据绑定，Vue.js 都提供了完全的 JavaScript 表达式支持。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; number + 1 &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; ok ? &quot;YES&quot; : &quot;NO&quot; &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;</span><br><span class="line">  message</span><br><span class="line">    .split(&quot;&quot;)</span><br><span class="line">    .reverse()</span><br><span class="line">    .join(&quot;&quot;)</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">&lt;div v-bind:id&#x3D;&quot;&#39;list-&#39; + id&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h5><p>指令是带有<code>v-</code>前缀的特殊特性。指令的指责是，当表达式的值改变时，将其产生的连带影响，响应式的作用与 DOM。</p>
+<ul>
+<li>v-if<blockquote>
+<p>v-if 指令将根据表达式 seen 的值的真假来插入/移除 <code>&lt;p&gt;</code> 元素。</p>
+</blockquote>
+</li>
+<li>v-bind<blockquote>
+<p>v-bind 指令可以用于响应式地更新 HTML 特性</p>
+</blockquote>
+</li>
+<li>v-on<blockquote>
+<p>v-on 指令可用于监听 DOM 事件</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="Angular-的模板语法"><a href="#Angular-的模板语法" class="headerlink" title="Angular 的模板语法"></a>Angular 的模板语法</h4><hr>
+<h5 id="插值-1"><a href="#插值-1" class="headerlink" title="插值"></a>插值</h5><ul>
+<li><p>文本的处理方法相同<br>在页面文本这部分，Angular 的处理方法与 Vue 相同，都是使用双括号的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;Message: &#123;&#123; msg &#125;&#125;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原始 HTML</p>
+<p>这个还没有发现</p>
+</li>
+<li><p>特性的绑定方法 属性绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 此处的iphone应该是个变量 &lt;a [title]&#x3D;&quot;iphone&quot;&gt;&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>attribute、class 和 style 绑定</p>
+<p>模版语法为那些不太适合属性绑定的场景提供了专门的单项数据绑定形式。</p>
+<p><strong>attribute 绑定</strong></p>
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"&#123;&#123;1 + 1&#125;&#125;"</span>&gt;</span>Three-Four<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Template parse errors:</span><br><span class="line">Can<span class="string">'t bind to '</span>colspan<span class="string">' since it isn'</span>t a known native property</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么会有这样的错误呢？</strong></p>
+<p>正如提示中所说，<code>&lt;td&gt;</code>元素没有<code>colspan</code>属性。但是插值和属性绑定只能设置属性，不能设置attribute.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">1</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--  expression calculates colspan=2 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> [<span class="attr">attr.colspan</span>]=<span class="string">"1 + 1"</span>&gt;</span>One-Two<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- ERROR: There is no `colspan` property to set!</span></span><br><span class="line"><span class="comment">    &lt;tr&gt;&lt;td colspan="&#123;&#123;1 + 1&#125;&#125;"&gt;Three-Four&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment">  --&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>Five<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>Six<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>CSS 类绑定</strong></p>
+<p>这个地方有个和<code>Vue</code>不一样的地方，在<code>Vue</code>中，我们可以使用这种方式来绑定<code>class</code>;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"static"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:class</span>=<span class="string">"&#123; active: isActive, 'text-danger': hasError &#125;"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">isActive: <span class="literal">true</span>,</span><br><span class="line">hasError: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>结果渲染为</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"static active"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们再来看看<code>Angualr</code>与<code>Vue</code>不一样的地方，两者的形式基本一样，但是结果却是两种;</p>
+<p><code>Angular</code>的结果是当 <code>badCurly</code> 有值的时候会完全覆盖这个class的内容。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- reset/override all class names with a binding  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bad curly special"</span> [<span class="attr">class</span>]=<span class="string">"badCurly"</span>&gt;</span>Bad curly<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>对比记忆更深刻</strong><br><code>Angular</code> 也是使用的模版绑定的语法，但是最后两者的形式却完全不同</p>
+<p>那么<code>Angular</code>的方法这么鸡肋，那不是完蛋了嘛？NO!<code>Angular</code>与<code>Vue</code>、<code>React</code>不同的地方就是：他是一个 <strong>大而全的框架</strong><br>换句话说，他还有方法来实现这个需求，来看代码；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- toggle the "special" class on/off with a property --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">class.special</span>]=<span class="string">"isSpecial"</span>&gt;</span>The class binding is special<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- binding to `class.special` trumps the class attribute --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"special"</span></span></span><br><span class="line"><span class="tag">     [<span class="attr">class.special</span>]=<span class="string">"!isSpecial"</span>&gt;</span>This one is not so special<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>实测，这种方法中两个<code>class</code>不会互相覆盖。但是这个方法如果想控制多个的时候难不成要写多个<code>[class.xxx]=“xxx”</code>的东西，没错，是的！<br>但是实际上还有一个更好的方法来管理类名😂；</p>
+<p><strong>NgClass</strong></p>
+<p>你经常用动态添加或删除 <code>CSS</code> 类的方式来控制元素如何显示。通过绑定到 <code>NgClass</code> ，可以同时添加或移除多个类。<br>CSS 类绑定是添加或删除 <strong>单个类</strong>的最佳途径。<br>当想要同时添加或移除多个CSS类时，NgClass 可能是更好的选择。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">currentClasses: &#123;&#125;;</span><br><span class="line">setCurrentClasses() &#123;</span><br><span class="line">  <span class="comment">// CSS classes: added/removed per current state of component properties</span></span><br><span class="line">  <span class="keyword">this</span>.currentClasses =  &#123;</span><br><span class="line">    <span class="string">'saveable'</span>: <span class="keyword">this</span>.canSave,</span><br><span class="line">    <span class="string">'modified'</span>: !<span class="keyword">this</span>.isUnchanged,</span><br><span class="line">    <span class="string">'special'</span>:  <span class="keyword">this</span>.isSpecial</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div [ngClass]=<span class="string">"currentClasses"</span>&gt;This div is initially saveable, unchanged, and special&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>样式绑定</strong></p>
+<p>通过样式绑定，可以设置内联样式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> [<span class="attr">style.color</span>]=<span class="string">"isSpecial ? 'red': 'green'"</span>&gt;</span>Red<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> [<span class="attr">style.background-color</span>]=<span class="string">"canSave ? 'cyan': 'grey'"</span> &gt;</span>Save<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> [<span class="attr">style.font-size.em</span>]=<span class="string">"isSpecial ? 3 : 1"</span> &gt;</span>Big<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> [<span class="attr">style.font-size.</span>%]=<span class="string">"!isSpecial ? 150 : 50"</span> &gt;</span>Small<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="指令-1"><a href="#指令-1" class="headerlink" title="指令"></a>指令</h5><ul>
+<li>v-if === *ngIf</li>
+<li>v-bind === []</li>
+<li>v-on === ()</li>
+</ul>
+<p>温馨提示</p>
+<ul>
+<li>模版表单在平时还是比较好用的</li>
+<li>响应式表单虽然很复杂，但是很强大的<h4 id="父子组件之间的值的传递"><a href="#父子组件之间的值的传递" class="headerlink" title="父子组件之间的值的传递"></a>父子组件之间的值的传递</h4></li>
+</ul>
+<hr>
+<h5 id="回忆Vue的方法"><a href="#回忆Vue的方法" class="headerlink" title="回忆Vue的方法"></a>回忆Vue的方法</h5><h6 id="父组件给子组件传递数据"><a href="#父组件给子组件传递数据" class="headerlink" title="父组件给子组件传递数据"></a>父组件给子组件传递数据</h6><p><strong>Vue</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 我们在这里封装一个组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-info"</span>&gt;</span></span><br><span class="line">    我是一个子组件，我用来显示&#123;&#123;someThing&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">  props: &#123;</span><br><span class="line">    someThing: &#123;</span><br><span class="line"><span class="javascript">      type: <span class="built_in">String</span>,</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">default</span>: <span class="string">''</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">card-info</span> <span class="attr">:someThing</span>=<span class="string">'someThing'</span>&gt;</span><span class="tag">&lt;/<span class="name">card-info</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>事实上，我们在其他的两大框架中我们都是通过Props的方式在子组件中获取父组件传递的参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, Input &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> &#123; Hero &#125; <span class="keyword">from</span> <span class="string">'./hero'</span>;</span><br><span class="line"> </span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: <span class="string">'app-hero-child'</span>,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h3&gt;&#123;&#123;hero.name&#125;&#125; says:&lt;/h3&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;I, &#123;&#123;hero.name&#125;&#125;, am at your service, &#123;&#123;masterName&#125;&#125;.&lt;/p&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HeroChildComponent</span> </span>&#123;</span><br><span class="line">  @Input() hero: Hero;</span><br><span class="line">  @Input(<span class="string">'master'</span>) masterName: string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">app-hero-child</span> [<span class="attr">hero</span>]=<span class="string">'hero&gt;&lt;/app-hero-child&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>Angular</code>中，我们是通过<code>@Input()</code>装饰器的方式来声明这个属性可以通过父组件传递过来，事实上<code>Augular</code> <code>Vue</code>之间父组件给子组件传递数据的时候也就是这个地方有一个小区别。</p>
+<p>除此之外，对于组件的数据传输方面，我们有时候可能需要处理一下我们获取到的数据，如果我们使用的是<code>Vue</code>的话，我们可能会使用计算属性<code>computed</code>。</p>
+<p>例如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-info"</span>&gt;</span></span><br><span class="line">    我是一个子组件，我用来显示&#123;&#123;name&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">  props: &#123;</span><br><span class="line">    someThing: &#123;</span><br><span class="line"><span class="javascript">      type: <span class="built_in">String</span>,</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">default</span>: <span class="string">''</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    name() &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">if</span>(<span class="keyword">this</span>.someThing)&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> <span class="string">'刘德华'</span></span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> <span class="string">'梁朝伟'</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">card-info</span> <span class="attr">:someThing</span>=<span class="string">'someThing'</span>&gt;</span><span class="tag">&lt;/<span class="name">card-info</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是在<code>Angular</code>中，我们有两种方法修改父组件传过来的数据</p>
+<ul>
+<li>setter</li>
+<li>ngOnChanges</li>
+</ul>
+<p>具体也没什么说的，可以参考一下中文文档</p>
+<p><a href="https://angular.cn/guide/component-interaction#intercept-input-property-changes-with-a-setter" target="_blank" rel="noopener">通过setter截听输入属性值的变化</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/17/IIFE/" rel="next" title="IIFE(立即调用函数表达式)">
+                <i class="fa fa-chevron-left"></i> IIFE(立即调用函数表达式)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/29/docker-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" rel="prev" title="docker 入门笔记">
+                docker 入门笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hhpon</p>
+              <p class="site-description motion-element" itemprop="description">苟有恒，何必三更眠五更起，最无益，莫过一日曝十日寒。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种框架的项目目录对比"><span class="nav-number">2.</span> <span class="nav-text">两种框架的项目目录对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue-目录结构"><span class="nav-number">2.1.</span> <span class="nav-text">Vue 目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Angular-目录结构"><span class="nav-number">2.2.</span> <span class="nav-text">Angular 目录结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板语法"><span class="nav-number">3.</span> <span class="nav-text">模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回顾-Vue-的模板语法"><span class="nav-number">3.1.</span> <span class="nav-text">回顾 Vue 的模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#插值"><span class="nav-number">3.1.1.</span> <span class="nav-text">插值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#指令"><span class="nav-number">3.1.2.</span> <span class="nav-text">指令</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Angular-的模板语法"><span class="nav-number">3.2.</span> <span class="nav-text">Angular 的模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#插值-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">插值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#指令-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">指令</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父子组件之间的值的传递"><span class="nav-number">3.3.</span> <span class="nav-text">父子组件之间的值的传递</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回忆Vue的方法"><span class="nav-number">3.3.1.</span> <span class="nav-text">回忆Vue的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#父组件给子组件传递数据"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">父组件给子组件传递数据</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hhpon</span>
+
+  
+</div>
+
+
+  <div class="powered-by"><a class="theme-link" target="_blank" href="https://beian.miit.gov.cn/state/outPortal/loginPortal.action">黑ICP备17009853号</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info"><a target="_blank" href="https://github.com/Hhpon">GitHub</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
